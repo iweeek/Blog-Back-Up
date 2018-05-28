@@ -32,9 +32,11 @@ def list_img_file(directory):
     new_list = []
     for filename in old_list:
         name, fileformat = filename.split(".")
+        # print(name)
         if fileformat.lower() == "jpg" or fileformat.lower() == "png" or fileformat.lower() == "gif":
             new_list.append(filename)
     # print new_list
+
     return new_list
 
 
@@ -98,9 +100,11 @@ def handle_photo():
     '''
     src_dir, des_dir = "photos/", "min_photos/"
     file_list = list_img_file(src_dir)
+    file_list.sort()
     list_info = []
     for i in range(len(file_list)):
         filename = file_list[i]
+        print filename
         date_str, info = filename.split("_")
         info, _ = info.split(".")
         date = datetime.strptime(date_str, "%Y-%m-%d")
